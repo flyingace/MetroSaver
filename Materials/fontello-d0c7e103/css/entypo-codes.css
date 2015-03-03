@@ -1,0 +1,9 @@
+
+.icon-back:before { content: '\3c'; } /* '&lt;' */
+.icon-go:before { content: '\3e'; } /* '&gt;' */
+.icon-delete:before { content: '\64'; } /* 'd' */
+.icon-info:before { content: '\69'; } /* 'i' */
+.icon-settings:before { content: '\73'; } /* 's' */
+.icon-clock:before { content: '\74'; } /* 't' */
+.icon-cancel:before { content: '\78'; } /* 'x' */
+.icon-check:before { content: '\79'; } /* 'y' */
