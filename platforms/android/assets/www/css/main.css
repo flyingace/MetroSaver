@@ -1,117 +1,82 @@
 @font-face {
-    font-family: 'Cabin';
-    src: url("../fonts/Cabin/Cabin-Regular.ttf") format("truetype");
-}
-
+  font-family: 'Cabin';
+  src: url("../fonts/Cabin/Cabin-Regular.ttf") format("truetype"); }
 @font-face {
-    font-family: 'entypo';
-    src: url("../fonts/icon-font/entypo.ttf?17848506") format("truetype");
-    font-weight: normal;
-    font-style: normal;
-}
-
+  font-family: 'entypo';
+  src: url("../fonts/icon-font/entypo.ttf?17848506") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
 * {
-    font-family: 'Cabin', sans-serif;
-    -webkit-tap-highlight-color: transparent;
-}
+  font-family: 'Cabin', sans-serif;
+  -webkit-tap-highlight-color: transparent; }
 
 .entypo {
-    font-family: 'entypo', 'Cabin', sans-serif;
-}
+  font-family: 'entypo', 'Cabin', sans-serif; }
 
 .clearfix:after {
-    clear: both;
-    content: "";
-}
+  clear: both;
+  content: ""; }
 
 html, body {
-    height: 100%;
-}
+  height: 100%; }
 
 body {
-    margin: 0;
-    padding: 0;
-    background: url("../img/old_city_hall.jpg") no-repeat -180px 0;
-    background-size: cover;
-    overflow: hidden;
-}
+  margin: 0;
+  padding: 0;
+  background: url("../img/old_city_hall.jpg") no-repeat -180px 0;
+  background-size: cover;
+  overflow: hidden; }
 
 .app-wrapper {
-    position: relative;
-    display: block;
-    overflow: hidden;
-    margin: 0;
-    padding: 15vh 0 8vh 0;
-    width: 100vw;
-    height: 77vh;
-    background: url("../img/logo.png") no-repeat center 2%;
-    background-size: 96%;
-}
-
-.app-wrapper.input .input-panel, .app-wrapper.input .results-panel {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  margin: 0;
+  padding: 15vh 0 8vh 0;
+  width: 100vw;
+  height: 77vh;
+  background: url("../img/logo.png") no-repeat center 2%;
+  background-size: 96%; }
+  .app-wrapper.input .input-panel, .app-wrapper.input .results-panel {
     animation: input-visible 0.3s;
     -webkit-animation: input-visible 0.3s;
     animation-fill-mode: forwards;
-    -webkit-animation-fill-mode: forwards;
-}
-
-.app-wrapper.results .input-panel, .app-wrapper.results .results-panel {
+    -webkit-animation-fill-mode: forwards; }
+  .app-wrapper.results .input-panel, .app-wrapper.results .results-panel {
     animation: results-visible 0.3s;
     -webkit-animation: results-visible 0.3s;
     animation-fill-mode: forwards;
-    -webkit-animation-fill-mode: forwards;
-}
-
-.app-wrapper.tabs .tabs-panel {
-    animation: tabs-visible 0.3s;
-    -webkit-animation: tabs-visible 0.3s;
-    animation-fill-mode: forwards;
-    -webkit-animation-fill-mode: forwards;
-}
-
-.app-wrapper .panel {
+    -webkit-animation-fill-mode: forwards; }
+  .app-wrapper .panel {
     position: absolute;
     width: 90vw;
     height: 77vh;
     margin: 0;
     padding: 0 5vw;
     overflow: hidden;
-}
-
-.app-wrapper .panel:after {
-    clear: both;
-    content: "";
-}
-
-.app-wrapper .input-panel {
-    left: 0;
-}
-
-.app-wrapper .input-panel .logo {
-    width: 100%;
-}
-
-.app-wrapper .input-panel .keypad-container {
-    display: -webkit-flex;
-    display: flex;
-    flex-wrap: wrap;
-    padding: 0;
-    width: 100%;
-    height: 77vh;
-}
-
-.app-wrapper .input-panel .keypad-container:after {
-    clear: both;
-    content: "";
-}
-
-.app-wrapper .balance-display, .app-wrapper .keypad {
+    transform: translateZ(0); }
+    .app-wrapper .panel:after {
+      clear: both;
+      content: ""; }
+  .app-wrapper .input-panel {
+    left: 0; }
+    .app-wrapper .input-panel .logo {
+      width: 100%; }
+    .app-wrapper .input-panel .keypad-container {
+      display: -webkit-flex;
+      display: flex;
+      flex-wrap: wrap;
+      padding: 0;
+      width: 100%;
+      height: 77vh; }
+      .app-wrapper .input-panel .keypad-container:after {
+        clear: both;
+        content: ""; }
+  .app-wrapper .balance-display, .app-wrapper .keypad {
     font-size: 5vh;
     line-height: normal;
-    outline: none;
-}
-
-.app-wrapper .balance-display {
+    outline: none; }
+  .app-wrapper .balance-display {
     width: 96%;
     height: 10%;
     text-align: right;
@@ -121,10 +86,8 @@ body {
     border-radius: 2vw;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
-    user-select: none;
-}
-
-.app-wrapper .keypad {
+    user-select: none; }
+  .app-wrapper .keypad {
     flex-grow: 1;
     float: left;
     width: 30%;
@@ -135,179 +98,137 @@ body {
     padding: 0;
     border: none;
     border-radius: 2vw;
-    background: rgba(255, 255, 255, 0.7);
-}
-
-.app-wrapper .keypad:nth-of-type(3n) {
+    background: rgba(255, 255, 255, 0.7); }
+  .app-wrapper .keypad:nth-of-type(3n) {
     clear: right;
-    margin-right: 0;
-}
-
-.app-wrapper .go-button, .app-wrapper .back-button {
+    margin-right: 0; }
+  .app-wrapper .go-button, .app-wrapper .back-button {
     width: 90vw;
     margin: 0;
-    background-color: rgba(26, 127, 10, 0.8);
-}
-
-.app-wrapper .back-button {
+    background-color: rgba(26, 127, 10, 0.8); }
+  .app-wrapper .back-button {
     position: absolute;
     bottom: 3vh;
     background-color: rgba(176, 176, 176, 0.8);
-    color: white;
-}
-
-.app-wrapper .results-panel {
-    left: 100vw;
-}
-
-.app-wrapper .results-panel .results-container {
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-    height: 62vh;
-}
-
-.app-wrapper .results-panel .result-table {
-    padding: 1vh 2vw 1vh 2.5vw;
-    margin: 0 0 1vh 0;
-    width: 85.5vw;
-    height: 10vh;
-    border-radius: 3vw;
-    background-color: rgba(255, 255, 255, 0.8);
-}
-
-.app-wrapper .results-panel .result-table:after {
-    clear: both;
-    content: "";
-}
-
-.app-wrapper .results-panel .result-table div {
-    float: left;
-}
-
-.app-wrapper .results-panel .result-table .amount {
-    width: 20%;
-    margin-right: 3%;
-    text-align: right;
-}
-
-.app-wrapper .results-panel .result-table .add {
-    margin-top: .25vh;
-    height: 3.75vh;
-    font-size: 3vh;
-}
-
-.app-wrapper .results-panel .result-table .add.label {
-    width: 52%;
-    text-align: left;
-}
-
-.app-wrapper .results-panel .result-table .bonus, .app-wrapper .results-panel .result-table .total {
-    height: 3vh;
-    font-size: 2.5vh;
-}
-
-.app-wrapper .results-panel .result-table .bonus.label, .app-wrapper .results-panel .result-table .total.label {
-    padding-left: 3%;
-    width: 49%;
-    text-align: left;
-}
-
-.app-wrapper .results-panel .result-table .ride-count {
-    float: right;
-    width: 25%;
-    height: 100%;
-    text-align: center;
-    border-radius: 2vw;
-    background-color: #29abe2;
-    color: #FFFFFF;
-}
-
-.app-wrapper .results-panel .result-table .ride-count .count {
-    font-size: 6vh;
-    line-height: 7vh;
-    height: 6vh;
-    display: block;
-}
-
-.app-wrapper .results-panel .result-table .ride-count .rides {
-    font-size: 3vh;
-    display: block;
-}
-
-.app-wrapper .tabs-panel {
+    color: white; }
+  .app-wrapper .results-panel {
+    left: 100vw; }
+    .app-wrapper .results-panel .results-container {
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      height: 62vh; }
+    .app-wrapper .results-panel .result-table {
+      padding: 1vh 2vw 1vh 2.5vw;
+      margin: 0 0 1vh 0;
+      width: 85.5vw;
+      height: 10vh;
+      border-radius: 3vw;
+      background-color: rgba(255, 255, 255, 0.8); }
+      .app-wrapper .results-panel .result-table:after {
+        clear: both;
+        content: ""; }
+      .app-wrapper .results-panel .result-table div {
+        float: left; }
+      .app-wrapper .results-panel .result-table .amount {
+        width: 20%;
+        margin-right: 3%;
+        text-align: right; }
+      .app-wrapper .results-panel .result-table .add {
+        margin-top: .25vh;
+        height: 3.75vh;
+        font-size: 3vh; }
+        .app-wrapper .results-panel .result-table .add.label {
+          width: 52%;
+          text-align: left; }
+      .app-wrapper .results-panel .result-table .bonus, .app-wrapper .results-panel .result-table .total {
+        height: 3vh;
+        font-size: 2.5vh; }
+        .app-wrapper .results-panel .result-table .bonus.label, .app-wrapper .results-panel .result-table .total.label {
+          padding-left: 3%;
+          width: 49%;
+          text-align: left; }
+      .app-wrapper .results-panel .result-table .ride-count {
+        float: right;
+        width: 25%;
+        height: 100%;
+        text-align: center;
+        border-radius: 2vw;
+        background-color: #29abe2;
+        color: #FFFFFF; }
+        .app-wrapper .results-panel .result-table .ride-count .count {
+          font-size: 6vh;
+          line-height: 7vh;
+          height: 6vh;
+          display: block; }
+        .app-wrapper .results-panel .result-table .ride-count .rides {
+          font-size: 3vh;
+          display: block; }
+  .app-wrapper .tabs-panel {
     bottom: -77vh;
     width: 100vw;
     padding: 8vh 0 0 0;
-    background-color: #EEEEEE;
-}
-
-.app-wrapper .tabs-panel .settings-container {
-    text-align: center;
-}
-
-.app-wrapper .tabs-panel .settings-container h3 {
-    font-size: 5vh;
-    font-weight: normal;
-    margin: 0;
-    height: 11vh;
-    line-height: 11vh;
-    border-bottom: 1px solid #333333;
-}
-
-.app-wrapper .tabs-panel .settings-container .fare-menu {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-.app-wrapper .tabs-panel .settings-container .fare-menu .fare {
-    height: 9vh;
-    padding: 0 5vw;
-    border-bottom: 1px solid #333;
-    font-size: 3.5vh;
-    line-height: 9vh;
-}
-
-.app-wrapper .tabs-panel .settings-container .fare-menu .fare.selected {
-    background-color: aliceblue;
-    margin-left: -8vw;
-}
-
-.app-wrapper .tabs-panel .settings-container .fare-menu .fare.selected:before {
-    font-family: 'entypo', sans-serif;
-    content: '\79';
-    margin-right: 3vw;
-}
-
-.app-wrapper .tab-bar {
+    background-color: #EEEEEE; }
+    .app-wrapper .tabs-panel.settings-visible {
+      animation: tabs-visible 0.3s;
+      -webkit-animation: tabs-visible 0.3s;
+      animation-fill-mode: forwards;
+      -webkit-animation-fill-mode: forwards; }
+    .app-wrapper .tabs-panel.info-visible {
+      animation: tabs-visible 0.3s;
+      -webkit-animation: tabs-visible 0.3s;
+      animation-fill-mode: forwards;
+      -webkit-animation-fill-mode: forwards; }
+    .app-wrapper .tabs-panel.tabs-hidden {
+      animation: tabs-hidden 0.3s;
+      -webkit-animation: tabs-hidden 0.3s;
+      animation-fill-mode: forwards;
+      -webkit-animation-fill-mode: forwards; }
+    .app-wrapper .tabs-panel .settings-container {
+      text-align: center; }
+      .app-wrapper .tabs-panel .settings-container h3 {
+        font-size: 5vh;
+        font-weight: normal;
+        margin: 0;
+        height: 11vh;
+        line-height: 11vh;
+        border-bottom: 1px solid #333333; }
+      .app-wrapper .tabs-panel .settings-container .fare-menu {
+        list-style-type: none;
+        margin: 0;
+        padding: 0; }
+        .app-wrapper .tabs-panel .settings-container .fare-menu .fare {
+          height: 9vh;
+          padding: 0 5vw;
+          border-bottom: 1px solid #333;
+          font-size: 3.5vh;
+          line-height: 9vh; }
+          .app-wrapper .tabs-panel .settings-container .fare-menu .fare.selected {
+            background-color: aliceblue;
+            margin-left: -8vw; }
+            .app-wrapper .tabs-panel .settings-container .fare-menu .fare.selected:before {
+              font-family: 'entypo', sans-serif;
+              content: '\79';
+              margin-right: 3vw; }
+  .app-wrapper .tab-bar {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 8vh;
-    background-color: rgba(41, 171, 226, 0.4);
-}
-
-.app-wrapper .tab-bar .tab {
-    width: 50%;
-    font-size: 3vh;
-    line-height: 8vh;
-    text-align: center;
-    color: white;
-    float: left;
-}
-
-.app-wrapper .tab-bar .tab:before {
-    font-family: 'entypo', sans-serif;
-    margin-right: 2vw;
-}
-
-.app-wrapper .tab-bar .settings:before {
-    content: '\73';
-}
-
-.app-wrapper .tab-bar .info:before {
-    content: '\69';
-}
+    background-color: rgba(41, 171, 226, 0.4); }
+    .app-wrapper .tab-bar .tab {
+      width: 50%;
+      font-size: 3vh;
+      line-height: 8vh;
+      text-align: center;
+      color: white;
+      float: left; }
+      .app-wrapper .tab-bar .tab:before {
+        font-family: 'entypo', sans-serif;
+        margin-right: 2vw; }
+    .app-wrapper .tab-bar .settings:before {
+      content: '\73'; }
+    .app-wrapper .tab-bar .info:before {
+      content: '\69'; }
 
 /*# sourceMappingURL=main.css.map */

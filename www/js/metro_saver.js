@@ -7,9 +7,11 @@ var metro_saver = {
     },
 
     bindEvents: function () {
-        var keypadButton = $('.keypad, .tab');
+        var keypadButton = $('.keypad, .tab'),
+            fareButton = $('.fare-menu li');
 
         keypadButton.bind('click', this.onKeypadClicked);
+        fareButton.bind('click', this.onFareSelected);
     },
 
     onKeypadClicked: function (evt) {
@@ -36,7 +38,10 @@ var metro_saver = {
                 metro_saver.onBackButtonClicked();
                 break;
             case "tab-settings":
-                metro_saver.updatePanelVisibility('tabs');
+                metro_saver.updateTabsVisibility('settings-visible');
+                break;
+            case "info-settings":
+                metro_saver.updateTabsVisibility('info-visible');
                 break;
             default:
                 metro_saver.updateFieldValue(replacementValue, keyValue);
@@ -106,6 +111,17 @@ var metro_saver = {
         var appWrapper = document.getElementsByClassName('app-wrapper')[0];
 
         appWrapper.className = "app-wrapper " + panelName;
+    },
+
+    updateTabsVisibility: function (tabName) {
+        var tabsPanel = document.getElementsByClassName('tabs-panel')[0];
+
+        if (tabName.indexOf('visible') > -1) {
+            tabsPanel.className = 'panel tabs-panel ' + tabName;
+        } else {
+            tabsPanel.className = 'panel tabs-panel tabs-hidden';
+        }
+
     },
 
     calculate: function (currentBalance) {
@@ -180,6 +196,23 @@ var metro_saver = {
                             '</div>';
             resultsContainer.insertAdjacentHTML('beforeEnd', resultTable);
         }
+    },
+
+    onFareSelected: function(evt) {
+        var selectedFare = evt.target,
+            fareButtons = document.querySelectorAll('ul.fare-menu li');
+
+        if (selectedFare.className.indexOf('selected') === -1) {
+            //forEach cannot be used here b/c this is not an array but a nodeList
+            for (var i = 0; i < fareButtons.length; i++) {
+                fareButtons[i].className = 'fare';
+            }
+            selectedFare.className += ' selected';
+        }
+
+        setTimeout(function(){
+            metro_saver.updateTabsVisibility('');
+        },300);
     }
 };
 
