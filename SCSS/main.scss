@@ -241,14 +241,7 @@ body {
     padding: 8vh 0 0 0;
     background-color: #EEEEEE;
 
-    &.settings-visible {
-      animation: tabs-visible 0.3s;
-      -webkit-animation: tabs-visible 0.3s;
-      animation-fill-mode: forwards;
-      -webkit-animation-fill-mode: forwards;
-    }
-
-    &.info-visible {
+    &.settings-visible, .info-visible {
       animation: tabs-visible 0.3s;
       -webkit-animation: tabs-visible 0.3s;
       animation-fill-mode: forwards;

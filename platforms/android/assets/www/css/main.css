@@ -168,12 +168,7 @@ body {
     width: 100vw;
     padding: 8vh 0 0 0;
     background-color: #EEEEEE; }
-    .app-wrapper .tabs-panel.settings-visible {
-      animation: tabs-visible 0.3s;
-      -webkit-animation: tabs-visible 0.3s;
-      animation-fill-mode: forwards;
-      -webkit-animation-fill-mode: forwards; }
-    .app-wrapper .tabs-panel.info-visible {
+    .app-wrapper .tabs-panel.settings-visible, .app-wrapper .tabs-panel .info-visible {
       animation: tabs-visible 0.3s;
       -webkit-animation: tabs-visible 0.3s;
       animation-fill-mode: forwards;

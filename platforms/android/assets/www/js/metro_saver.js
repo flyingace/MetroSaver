@@ -2,6 +2,17 @@
 
 var metro_saver = {
 
+    calc_values: {
+        'minAdd': 400,
+        'maxAdd': 8000,
+        'minAddForBonus': 550,
+        'maxCardValue': 10000,
+        'costPerRide': 275,
+        'toAdd': 0,
+        'increment': 5,
+        'bonusRate': 11
+    },
+
     initialize: function () {
         this.bindEvents();
     },
@@ -81,7 +92,7 @@ var metro_saver = {
             valueAsString = '0'.concat(valueAsString);
         }
 
-        dollars = valueAsString.slice(0,-2);
+        dollars = valueAsString.slice(0, -2);
         cents = valueAsString.slice(-2);
         amendedValue = '$'.concat(dollars, '.', cents);
 
@@ -125,16 +136,17 @@ var metro_saver = {
     },
 
     calculate: function (currentBalance) {
-        var minAdd = 400,
-            maxAdd = 8000,
-            minAddForBonus = 550,
-            maxCardValue = 10000,
-            costPerRide = 275,
-            toAdd = 0,
+        var cv = metro_saver.calc_values,
+            minAdd = cv.minAdd,
+            maxAdd = cv.maxAdd,
+            minAddForBonus = cv.minAddForBonus,
+            maxCardValue = cv.maxCardValue,
+            costPerRide = cv.costPerRide,
+            toAdd = cv.toAdd,
+            increment = cv.increment,
+            bonusRate = cv.bonusRate,
             resultsArray = [],
             projectedTotal,
-            increment = 5,
-            bonusRate = 11,
             i = 0;
 
         //handle values too low for interest
@@ -171,7 +183,7 @@ var metro_saver = {
         return resultsArray;
     },
 
-    updateResultsPanel: function(resultsArray) {
+    updateResultsPanel: function (resultsArray) {
         var resultsContainer = document.getElementById('results'),
             resultTable, resultArray, toAdd, bonus, totalValue;
 
@@ -182,36 +194,40 @@ var metro_saver = {
             toAdd = metro_saver.restoreDollarAndDecimal(resultArray[0]);
             bonus = metro_saver.restoreDollarAndDecimal(resultArray[1]);
             totalValue = metro_saver.restoreDollarAndDecimal(resultArray[2]);
-            resultTable =   '<div class="result-table">' +
-                                '<div class="add label">Add to Your Card:</div>' +
-                                '<div class="add amount">' + toAdd + '</div>' +
-                                '<div class="ride-count">' +
-                                    '<span class="count">' + resultArray[3] + '</span>' +
-                                    '<span class="rides">Rides</span>' +
-                                '</div>' +
-                                '<div class="bonus label">11% Bonus:</div>' +
-                                '<div class="bonus amount">' + bonus + '</div>' +
-                                '<div class="total label">Total Value: </div>' +
-                                '<div class="total amount">' + totalValue + '</div>' +
-                            '</div>';
+            resultTable = '<div class="result-table">' +
+                '<div class="add label">Add to Your Card:</div>' +
+                '<div class="add amount">' + toAdd + '</div>' +
+                '<div class="ride-count">' +
+                '<span class="count">' + resultArray[3] + '</span>' +
+                '<span class="rides">Rides</span>' +
+                '</div>' +
+                '<div class="bonus label">11% Bonus:</div>' +
+                '<div class="bonus amount">' + bonus + '</div>' +
+                '<div class="total label">Total Value: </div>' +
+                '<div class="total amount">' + totalValue + '</div>' +
+                '</div>';
             resultsContainer.insertAdjacentHTML('beforeEnd', resultTable);
         }
     },
 
-    onFareSelected: function(evt) {
+    onFareSelected: function (evt) {
         var selectedFare = evt.target,
-            fareButtons = document.querySelectorAll('ul.fare-menu li');
+            fareButtons = document.querySelectorAll('ul.fare-menu li'),
+            cv = metro_saver.calc_values;
 
         if (selectedFare.className.indexOf('selected') === -1) {
+            //forEach cannot be used here b/c this is not an array but a nodeList
             for (var i = 0; i < fareButtons.length; i++) {
                 fareButtons[i].className = 'fare';
             }
             selectedFare.className += ' selected';
+            cv.costPerRide = parseInt(selectedFare.value);
+            metro_saver.updatePanelVisibility('input-panel');
         }
 
-        setTimeout(function(){
+        setTimeout(function () {
             metro_saver.updateTabsVisibility('');
-        },300);
+        }, 300);
     }
 };
 
