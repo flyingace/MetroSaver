@@ -12,11 +12,16 @@
 
 * {
   font-family: 'Cabin', sans-serif;
-  -webkit-tap-highlight-color:rgba(0,0,0,0);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 .entypo {
   font-family: 'entypo', 'Cabin', sans-serif;
+}
+
+.touch-scroll {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .clearfix:after {
@@ -241,11 +246,29 @@ body {
     padding: 8vh 0 0 0;
     background-color: #EEEEEE;
 
-    &.settings-visible, .info-visible {
+    &.settings-visible, &.info-visible {
       animation: tabs-visible 0.3s;
       -webkit-animation: tabs-visible 0.3s;
       animation-fill-mode: forwards;
       -webkit-animation-fill-mode: forwards;
+    }
+
+    &.settings-visible {
+      .settings-container {
+        display: block;
+      }
+      .info-container {
+        display: none;
+      }
+    }
+
+    &.info-visible {
+      .settings-container {
+        display: none;
+      }
+      .info-container {
+        display: block;
+      }
     }
 
     &.tabs-hidden {
@@ -294,7 +317,23 @@ body {
     }
 
     .info-container {
+      @extend .touch-scroll;
+      display: none;
+      height: 75vh;
+      padding: 2vw;
 
+      h2, h3 {
+        margin: 0;
+      }
+
+      ul {
+        padding-left: 6vw;
+      }
+
+      li {
+        margin: 0.4vh 0;
+        line-height: 1.3;
+      }
     }
   }
 

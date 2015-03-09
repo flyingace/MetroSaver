@@ -13,6 +13,10 @@
 .entypo {
   font-family: 'entypo', 'Cabin', sans-serif; }
 
+.touch-scroll, .app-wrapper .tabs-panel .info-container {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch; }
+
 .clearfix:after {
   clear: both;
   content: ""; }
@@ -168,11 +172,19 @@ body {
     width: 100vw;
     padding: 8vh 0 0 0;
     background-color: #EEEEEE; }
-    .app-wrapper .tabs-panel.settings-visible, .app-wrapper .tabs-panel .info-visible {
+    .app-wrapper .tabs-panel.settings-visible, .app-wrapper .tabs-panel.info-visible {
       animation: tabs-visible 0.3s;
       -webkit-animation: tabs-visible 0.3s;
       animation-fill-mode: forwards;
       -webkit-animation-fill-mode: forwards; }
+    .app-wrapper .tabs-panel.settings-visible .settings-container {
+      display: block; }
+    .app-wrapper .tabs-panel.settings-visible .info-container {
+      display: none; }
+    .app-wrapper .tabs-panel.info-visible .settings-container {
+      display: none; }
+    .app-wrapper .tabs-panel.info-visible .info-container {
+      display: block; }
     .app-wrapper .tabs-panel.tabs-hidden {
       animation: tabs-hidden 0.3s;
       -webkit-animation: tabs-hidden 0.3s;
@@ -204,6 +216,17 @@ body {
               font-family: 'entypo', sans-serif;
               content: '\79';
               margin-right: 3vw; }
+    .app-wrapper .tabs-panel .info-container {
+      display: none;
+      height: 75vh;
+      padding: 2vw; }
+      .app-wrapper .tabs-panel .info-container h2, .app-wrapper .tabs-panel .info-container h3 {
+        margin: 0; }
+      .app-wrapper .tabs-panel .info-container ul {
+        padding-left: 6vw; }
+      .app-wrapper .tabs-panel .info-container li {
+        margin: 0.4vh 0;
+        line-height: 1.3; }
   .app-wrapper .tab-bar {
     position: absolute;
     top: 0;

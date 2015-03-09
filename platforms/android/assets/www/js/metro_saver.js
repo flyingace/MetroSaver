@@ -3,14 +3,15 @@
 var metro_saver = {
 
     calc_values: {
-        'minAdd': 400,
-        'maxAdd': 8000,
+        'minAdd': 5,
+        'maxAdd': 10000,
         'minAddForBonus': 550,
         'maxCardValue': 10000,
         'costPerRide': 275,
         'toAdd': 0,
         'increment': 5,
-        'bonusRate': 11
+        'bonusRate': 11,
+        'currentBalance': '$00.00'
     },
 
     initialize: function () {
@@ -26,8 +27,10 @@ var metro_saver = {
     },
 
     onKeypadClicked: function (evt) {
-        var inputFieldValue = document.getElementById('card-value-input').value,
-            replacementValue = metro_saver.removeDollarAndDecimal(inputFieldValue),
+        //var inputFieldValue = document.getElementById('card-value-input').value,
+        //    replacementValue = metro_saver.removeDollarAndDecimal(inputFieldValue),
+        var cv = metro_saver.calc_values,
+            replacementValue = metro_saver.removeDollarAndDecimal(cv.currentBalance),
             keyId = evt.target.id,
             keyValue = evt.target.value,
             resultsArray;
@@ -51,7 +54,7 @@ var metro_saver = {
             case "tab-settings":
                 metro_saver.updateTabsVisibility('settings-visible');
                 break;
-            case "info-settings":
+            case "tab-info":
                 metro_saver.updateTabsVisibility('info-visible');
                 break;
             default:
@@ -71,10 +74,10 @@ var metro_saver = {
      * @returns {*}
      */
     removeDollarAndDecimal: function (valueToModify) {
-        var modifiedValue;
+        var modifiedValue = valueToModify.toString();
 
-        if (typeof valueToModify === 'string' && valueToModify.indexOf('$') === 0) {
-            modifiedValue = valueToModify.slice(1);
+        if (modifiedValue.indexOf('$') === 0) {
+            modifiedValue = modifiedValue.slice(1);
         }
 
         if (modifiedValue.indexOf('.') !== -1) {
@@ -102,18 +105,20 @@ var metro_saver = {
 
     updateFieldValue: function (prevValue, numberKeyPressed) {
         var previousValue = prevValue.toString(),
+            cv = metro_saver.calc_values,
             updatedValue;
 
         if (previousValue.length < 4) {
 
-            updatedValue = previousValue.concat(numberKeyPressed);
+            updatedValue = previousValue + numberKeyPressed;
 
             while (updatedValue.length < 4) {
-                updatedValue = "0".concat(updatedValue);
+                updatedValue = "0" + updatedValue;
             }
 
-            updatedValue = "$".concat(updatedValue.substr(0, 2), ".", updatedValue.substr(2));
+            updatedValue = "$" + updatedValue.substr(0, 2) + "." + updatedValue.substr(2); //TODO: Replace this with restoreDollarAndDecimal()
 
+            cv.currentBalance = updatedValue;
             document.getElementById('card-value-input').value = updatedValue;
         }
     },
@@ -157,7 +162,7 @@ var metro_saver = {
 
             if (projectedTotal > maxCardValue) {
                 i = 0;
-                return;
+                return resultsArray;
             }
 
             if (projectedTotal % costPerRide === 0 && toAdd >= minAdd) {
@@ -171,7 +176,7 @@ var metro_saver = {
             projectedTotal = Math.round(currentBalance + toAdd + (toAdd / (100 / bonusRate)));
 
             if (projectedTotal > maxCardValue) {
-                return;
+                return resultsArray;
             }
 
             if ((projectedTotal % costPerRide) === 0) {
@@ -213,7 +218,8 @@ var metro_saver = {
     onFareSelected: function (evt) {
         var selectedFare = evt.target,
             fareButtons = document.querySelectorAll('ul.fare-menu li'),
-            cv = metro_saver.calc_values;
+            cv = metro_saver.calc_values,
+            currBalance = metro_saver.removeDollarAndDecimal(cv.currentBalance);
 
         if (selectedFare.className.indexOf('selected') === -1) {
             //forEach cannot be used here b/c this is not an array but a nodeList
@@ -222,7 +228,10 @@ var metro_saver = {
             }
             selectedFare.className += ' selected';
             cv.costPerRide = parseInt(selectedFare.value);
-            metro_saver.updatePanelVisibility('input-panel');
+//             metro_saver.updatePanelVisibility('input-panel');
+            
+            resultsArray = metro_saver.calculate(currBalance);
+            metro_saver.updateResultsPanel(resultsArray);
         }
 
         setTimeout(function () {
