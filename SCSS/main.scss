@@ -15,6 +15,28 @@
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
+a {
+  color: rgb(41, 171, 226);
+  text-decoration: none;
+}
+
+strong {
+  font-weight: bold;
+}
+
+h2, h3 {
+  margin: .5vh 0 -1vh 0;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 3.75vh;
+}
+
+h3 {
+  font-size: 2.9vh;
+}
+
 .entypo {
   font-family: 'entypo', 'Cabin', sans-serif;
 }
@@ -141,6 +163,10 @@ body {
     border: none;
     border-radius: 2vw;
     background: rgba(255, 255, 255, .7);
+
+    &:active {
+      background-color: rgba(159, 211, 233, .7);
+    }
   }
 
   .keypad:nth-of-type(3n) {
@@ -159,6 +185,10 @@ body {
     bottom: 3vh;
     background-color: rgba(176, 176, 176, 0.80);
     color: white;
+
+    &:active {
+      background-color: rgba(41, 171, 226, .7);
+    }
   }
 
   //  Results Panel
@@ -171,7 +201,7 @@ body {
       height: 62vh;
     }
 
-    .result-table {
+    .result-table, .no-result-table {
       padding: 1vh 2vw 1vh 2.5vw;
       margin: 0 0 1vh 0;
       width: 85.5vw;
@@ -222,7 +252,7 @@ body {
         height: 100%;
         text-align: center;
         border-radius: 2vw;
-        background-color: rgba(41, 171, 226, 1);
+        background-color: rgb(41, 171, 226);
         color: #FFFFFF;
 
         .count {
@@ -238,13 +268,19 @@ body {
         }
       }
     }
+
+    .no-result-table {
+      width: 83.5vw;
+      height: auto;
+      padding: 1.8vh 2.5vw 0.5vh 4vw
+    }
   }
 
   .tabs-panel {
     bottom: -77vh;
     width: 100vw;
     padding: 8vh 0 0 0;
-    background-color: #EEEEEE;
+    background-color: #FCFCFC;
 
     &.settings-visible, &.info-visible {
       animation: tabs-visible 0.3s;
@@ -254,6 +290,15 @@ body {
     }
 
     &.settings-visible {
+      .settings {
+        color: rgb(159, 211, 233);
+        background-color: #FCFCFC;
+      }
+      .settings:after {
+        font-family: 'entypo', sans-serif;
+        content: '\76';
+        margin-left: 2vw;
+      }
       .settings-container {
         display: block;
       }
@@ -263,6 +308,15 @@ body {
     }
 
     &.info-visible {
+      .info {
+        color: rgb(159, 211, 233);
+        background-color: #FCFCFC;
+      }
+      .info:after {
+        font-family: 'entypo', sans-serif;
+        content: '\76';
+        margin-left: 2vw;
+      }
       .settings-container {
         display: none;
       }
@@ -281,7 +335,7 @@ body {
     .settings-container {
       text-align: center;
 
-      h3 {
+      .settings-title {
         font-size: 5vh;
         font-weight: normal;
         margin: 0;
@@ -320,11 +374,7 @@ body {
       @extend .touch-scroll;
       display: none;
       height: 75vh;
-      padding: 2vw;
-
-      h2, h3 {
-        margin: 0;
-      }
+      padding: 2.5vh 5vw;
 
       ul {
         padding-left: 6vw;
@@ -343,7 +393,7 @@ body {
     left: 0;
     width: 100%;
     height: 8vh;
-    background-color: rgba(41, 171, 226, 0.4);
+    background-color: rgb(159, 211, 233);
 
     .tab {
       width: 50%;

@@ -10,6 +10,23 @@
   font-family: 'Cabin', sans-serif;
   -webkit-tap-highlight-color: transparent; }
 
+a {
+  color: #29abe2;
+  text-decoration: none; }
+
+strong {
+  font-weight: bold; }
+
+h2, h3 {
+  margin: .5vh 0 -1vh 0;
+  font-weight: bold; }
+
+h2 {
+  font-size: 3.75vh; }
+
+h3 {
+  font-size: 2.9vh; }
+
 .entypo {
   font-family: 'entypo', 'Cabin', sans-serif; }
 
@@ -103,6 +120,8 @@ body {
     border: none;
     border-radius: 2vw;
     background: rgba(255, 255, 255, 0.7); }
+    .app-wrapper .keypad:active {
+      background-color: rgba(159, 211, 233, 0.7); }
   .app-wrapper .keypad:nth-of-type(3n) {
     clear: right;
     margin-right: 0; }
@@ -115,43 +134,45 @@ body {
     bottom: 3vh;
     background-color: rgba(176, 176, 176, 0.8);
     color: white; }
+    .app-wrapper .back-button:active {
+      background-color: rgba(41, 171, 226, 0.7); }
   .app-wrapper .results-panel {
     left: 100vw; }
     .app-wrapper .results-panel .results-container {
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
       height: 62vh; }
-    .app-wrapper .results-panel .result-table {
+    .app-wrapper .results-panel .result-table, .app-wrapper .results-panel .no-result-table {
       padding: 1vh 2vw 1vh 2.5vw;
       margin: 0 0 1vh 0;
       width: 85.5vw;
       height: 10vh;
       border-radius: 3vw;
       background-color: rgba(255, 255, 255, 0.8); }
-      .app-wrapper .results-panel .result-table:after {
+      .app-wrapper .results-panel .result-table:after, .app-wrapper .results-panel .no-result-table:after {
         clear: both;
         content: ""; }
-      .app-wrapper .results-panel .result-table div {
+      .app-wrapper .results-panel .result-table div, .app-wrapper .results-panel .no-result-table div {
         float: left; }
-      .app-wrapper .results-panel .result-table .amount {
+      .app-wrapper .results-panel .result-table .amount, .app-wrapper .results-panel .no-result-table .amount {
         width: 20%;
         margin-right: 3%;
         text-align: right; }
-      .app-wrapper .results-panel .result-table .add {
+      .app-wrapper .results-panel .result-table .add, .app-wrapper .results-panel .no-result-table .add {
         margin-top: .25vh;
         height: 3.75vh;
         font-size: 3vh; }
-        .app-wrapper .results-panel .result-table .add.label {
+        .app-wrapper .results-panel .result-table .add.label, .app-wrapper .results-panel .no-result-table .add.label {
           width: 52%;
           text-align: left; }
-      .app-wrapper .results-panel .result-table .bonus, .app-wrapper .results-panel .result-table .total {
+      .app-wrapper .results-panel .result-table .bonus, .app-wrapper .results-panel .result-table .total, .app-wrapper .results-panel .no-result-table .bonus, .app-wrapper .results-panel .no-result-table .total {
         height: 3vh;
         font-size: 2.5vh; }
-        .app-wrapper .results-panel .result-table .bonus.label, .app-wrapper .results-panel .result-table .total.label {
+        .app-wrapper .results-panel .result-table .bonus.label, .app-wrapper .results-panel .result-table .total.label, .app-wrapper .results-panel .no-result-table .bonus.label, .app-wrapper .results-panel .no-result-table .total.label {
           padding-left: 3%;
           width: 49%;
           text-align: left; }
-      .app-wrapper .results-panel .result-table .ride-count {
+      .app-wrapper .results-panel .result-table .ride-count, .app-wrapper .results-panel .no-result-table .ride-count {
         float: right;
         width: 25%;
         height: 100%;
@@ -159,28 +180,46 @@ body {
         border-radius: 2vw;
         background-color: #29abe2;
         color: #FFFFFF; }
-        .app-wrapper .results-panel .result-table .ride-count .count {
+        .app-wrapper .results-panel .result-table .ride-count .count, .app-wrapper .results-panel .no-result-table .ride-count .count {
           font-size: 6vh;
           line-height: 7vh;
           height: 6vh;
           display: block; }
-        .app-wrapper .results-panel .result-table .ride-count .rides {
+        .app-wrapper .results-panel .result-table .ride-count .rides, .app-wrapper .results-panel .no-result-table .ride-count .rides {
           font-size: 3vh;
           display: block; }
+    .app-wrapper .results-panel .no-result-table {
+      width: 83.5vw;
+      height: auto;
+      padding: 1.8vh 2.5vw 0.5vh 4vw; }
   .app-wrapper .tabs-panel {
     bottom: -77vh;
     width: 100vw;
     padding: 8vh 0 0 0;
-    background-color: #EEEEEE; }
+    background-color: #FCFCFC; }
     .app-wrapper .tabs-panel.settings-visible, .app-wrapper .tabs-panel.info-visible {
       animation: tabs-visible 0.3s;
       -webkit-animation: tabs-visible 0.3s;
       animation-fill-mode: forwards;
       -webkit-animation-fill-mode: forwards; }
+    .app-wrapper .tabs-panel.settings-visible .settings {
+      color: #9fd3e9;
+      background-color: #FCFCFC; }
+    .app-wrapper .tabs-panel.settings-visible .settings:after {
+      font-family: 'entypo', sans-serif;
+      content: '\76';
+      margin-left: 2vw; }
     .app-wrapper .tabs-panel.settings-visible .settings-container {
       display: block; }
     .app-wrapper .tabs-panel.settings-visible .info-container {
       display: none; }
+    .app-wrapper .tabs-panel.info-visible .info {
+      color: #9fd3e9;
+      background-color: #FCFCFC; }
+    .app-wrapper .tabs-panel.info-visible .info:after {
+      font-family: 'entypo', sans-serif;
+      content: '\76';
+      margin-left: 2vw; }
     .app-wrapper .tabs-panel.info-visible .settings-container {
       display: none; }
     .app-wrapper .tabs-panel.info-visible .info-container {
@@ -192,7 +231,7 @@ body {
       -webkit-animation-fill-mode: forwards; }
     .app-wrapper .tabs-panel .settings-container {
       text-align: center; }
-      .app-wrapper .tabs-panel .settings-container h3 {
+      .app-wrapper .tabs-panel .settings-container .settings-title {
         font-size: 5vh;
         font-weight: normal;
         margin: 0;
@@ -219,9 +258,7 @@ body {
     .app-wrapper .tabs-panel .info-container {
       display: none;
       height: 75vh;
-      padding: 2vw; }
-      .app-wrapper .tabs-panel .info-container h2, .app-wrapper .tabs-panel .info-container h3 {
-        margin: 0; }
+      padding: 2.5vh 5vw; }
       .app-wrapper .tabs-panel .info-container ul {
         padding-left: 6vw; }
       .app-wrapper .tabs-panel .info-container li {
@@ -233,7 +270,7 @@ body {
     left: 0;
     width: 100%;
     height: 8vh;
-    background-color: rgba(41, 171, 226, 0.4); }
+    background-color: #9fd3e9; }
     .app-wrapper .tab-bar .tab {
       width: 50%;
       font-size: 3vh;

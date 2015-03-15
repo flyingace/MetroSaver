@@ -3,7 +3,7 @@
 var metro_saver = {
 
     calc_values: {
-        'minAdd': 5,
+        'minAdd': 100,
         'maxAdd': 10000,
         'minAddForBonus': 550,
         'maxCardValue': 10000,
@@ -11,7 +11,8 @@ var metro_saver = {
         'toAdd': 0,
         'increment': 5,
         'bonusRate': 11,
-        'currentBalance': '$00.00'
+        'currentBalance': '$00.00',
+        'visibleTab': ''
     },
 
     initialize: function () {
@@ -24,29 +25,26 @@ var metro_saver = {
 
         keypadButton.bind('click', this.onKeypadClicked);
         fareButton.bind('click', this.onFareSelected);
+        keypadButton.bind('touchStart', this.onTouchStart);
     },
 
     onKeypadClicked: function (evt) {
         //var inputFieldValue = document.getElementById('card-value-input').value,
         //    replacementValue = metro_saver.removeDollarAndDecimal(inputFieldValue),
         var cv = metro_saver.calc_values,
-            replacementValue = metro_saver.removeDollarAndDecimal(cv.currentBalance),
+            currentBalance = cv.currentBalance,
             keyId = evt.target.id,
             keyValue = evt.target.value,
             resultsArray;
 
         switch (keyId) {
             case "keypad-go":
-                resultsArray = metro_saver.calculate(replacementValue);
+                resultsArray = metro_saver.calculate(currentBalance);
                 metro_saver.updateResultsPanel(resultsArray);
                 metro_saver.updatePanelVisibility('results');
                 break;
-            case "keypad-del":
-                //reverse process of adding numbers
-                break;
             case "keypad-clear":
-                metro_saver.updateFieldValue(0, 0);
-                //clear
+                metro_saver.clearField();
                 break;
             case "keypad-back":
                 metro_saver.onBackButtonClicked();
@@ -58,69 +56,68 @@ var metro_saver = {
                 metro_saver.updateTabsVisibility('info-visible');
                 break;
             default:
-                metro_saver.updateFieldValue(replacementValue, keyValue);
+                metro_saver.updateFieldValue(currentBalance, keyValue);
                 break;
         }
     },
 
-    onBackButtonClicked: function (evt) {
+    onBackButtonClicked: function () {
         metro_saver.updatePanelVisibility('input');
     },
 
+    onTouchStart: function(e) {
+        return true;
+    },
+
     /**
-     * Strips string value of 'valueToModify' of '$' and converts resulting string
-     * to a float, then multiplies that by 100 and returns a Number
+     * Strips '$' and '.' out of 'valueToModify' and converts resulting string to an integer
      * @param valueToModify
-     * @returns {*}
+     * @returns {Number}
      */
     removeDollarAndDecimal: function (valueToModify) {
-        var modifiedValue = valueToModify.toString();
+        var strippedValue = valueToModify.replace(/(\$|\.)/g, ''),
+            numericValue = parseInt(strippedValue, 10);
 
-        if (modifiedValue.indexOf('$') === 0) {
-            modifiedValue = modifiedValue.slice(1);
-        }
-
-        if (modifiedValue.indexOf('.') !== -1) {
-            modifiedValue = Math.floor(parseFloat(modifiedValue) * 100);
-        }
-
-        return modifiedValue;
+        return numericValue;
     },
 
     restoreDollarAndDecimal: function (valueToAmend) {
         var valueAsString = valueToAmend.toString(),
-            amendedValue, dollars, cents;
+            dollars, cents, amendedValue;
 
-        if (valueAsString.length < 3) {
-            valueAsString = '0'.concat(valueAsString);
+        while (valueAsString.length < 3) {
+            valueAsString = '0' + valueAsString;
         }
 
         dollars = valueAsString.slice(0, -2);
         cents = valueAsString.slice(-2);
-        amendedValue = '$'.concat(dollars, '.', cents);
+        amendedValue = '$' + dollars + '.' + cents;
 
         return amendedValue;
     },
 
+    clearField: function () {
+        metro_saver.calc_values.currentBalance = '$00.00';
+        document.getElementById('card-value-input').value = '$00.00';
+    },
 
-    updateFieldValue: function (prevValue, numberKeyPressed) {
-        var previousValue = prevValue.toString(),
+    updateFieldValue: function (currValue, keyPressed) {
+        var currentValue = currValue,
             cv = metro_saver.calc_values,
+            valuesArray = currentValue.split(''),
             updatedValue;
 
-        if (previousValue.length < 4) {
-
-            updatedValue = previousValue + numberKeyPressed;
-
-            while (updatedValue.length < 4) {
-                updatedValue = "0" + updatedValue;
-            }
-
-            updatedValue = "$" + updatedValue.substr(0, 2) + "." + updatedValue.substr(2); //TODO: Replace this with restoreDollarAndDecimal()
-
-            cv.currentBalance = updatedValue;
-            document.getElementById('card-value-input').value = updatedValue;
+        if (keyPressed === 'del') {
+            updatedValue = valuesArray[0] + '0' + valuesArray[1] + '.' + valuesArray[2] + valuesArray[4];
+        } else if (valuesArray[1] === '0') {
+            updatedValue = '$' + valuesArray[2] + valuesArray[4] + '.' + valuesArray[5] + keyPressed;
+        } else {
+            updatedValue = currentValue;
         }
+
+        cv.currentBalance = updatedValue;
+        document.getElementById('card-value-input').value = updatedValue;
+
     },
 
     updatePanelVisibility: function (panelName) {
@@ -130,18 +127,21 @@ var metro_saver = {
     },
 
     updateTabsVisibility: function (tabName) {
-        var tabsPanel = document.getElementsByClassName('tabs-panel')[0];
+        var tabsPanel = document.getElementsByClassName('tabs-panel')[0],
+            visibleTab = metro_saver.calc_values.visibleTab;
 
-        if (tabName.indexOf('visible') > -1) {
-            tabsPanel.className = 'panel tabs-panel ' + tabName;
-        } else {
+        if (tabName === visibleTab || tabName === '') {
             tabsPanel.className = 'panel tabs-panel tabs-hidden';
+            metro_saver.calc_values.visibleTab = '';
+        } else {
+            tabsPanel.className = 'panel tabs-panel ' + tabName;
+            metro_saver.calc_values.visibleTab = tabName;
         }
-
     },
 
-    calculate: function (currentBalance) {
+    calculate: function () {
         var cv = metro_saver.calc_values,
+            currentBalance = metro_saver.removeDollarAndDecimal(cv.currentBalance),
             minAdd = cv.minAdd,
             maxAdd = cv.maxAdd,
             minAddForBonus = cv.minAddForBonus,
@@ -155,9 +155,7 @@ var metro_saver = {
             i = 0;
 
         //handle values too low for interest
-        while (toAdd < maxAdd && toAdd < minAddForBonus) {
-            i += 1;
-            toAdd = increment * i;
+        while (toAdd < minAddForBonus) {
             projectedTotal = currentBalance + toAdd;
 
             if (projectedTotal > maxCardValue) {
@@ -168,6 +166,9 @@ var metro_saver = {
             if (projectedTotal % costPerRide === 0 && toAdd >= minAdd) {
                 resultsArray.push([toAdd, projectedTotal - (currentBalance + toAdd), projectedTotal, projectedTotal / costPerRide]);
             }
+
+            i += 1;
+            toAdd = increment * i;
         }
         //handle values high enough for interest
         while (toAdd < maxAdd) {
@@ -189,29 +190,43 @@ var metro_saver = {
     },
 
     updateResultsPanel: function (resultsArray) {
-        var resultsContainer = document.getElementById('results'),
-            resultTable, resultArray, toAdd, bonus, totalValue;
+        var cv = metro_saver.calc_values,
+            minAddForBonus = cv.minAddForBonus,
+            resultsContainer = document.getElementById('results'),
+            resultTable, noResultTable, resultArray, toAdd, bonusRate, bonus, totalValue;
 
         resultsContainer.innerText = "";
 
         for (var i = 0; i < resultsArray.length; i++) {
             resultArray = resultsArray[i];
             toAdd = metro_saver.restoreDollarAndDecimal(resultArray[0]);
+            bonusRate = (resultArray[0] >= minAddForBonus) ? cv.bonusRate.toString() : '0';
             bonus = metro_saver.restoreDollarAndDecimal(resultArray[1]);
             totalValue = metro_saver.restoreDollarAndDecimal(resultArray[2]);
+
             resultTable = '<div class="result-table">' +
-                '<div class="add label">Add to Your Card:</div>' +
-                '<div class="add amount">' + toAdd + '</div>' +
-                '<div class="ride-count">' +
-                '<span class="count">' + resultArray[3] + '</span>' +
-                '<span class="rides">Rides</span>' +
-                '</div>' +
-                '<div class="bonus label">11% Bonus:</div>' +
-                '<div class="bonus amount">' + bonus + '</div>' +
-                '<div class="total label">Total Value: </div>' +
-                '<div class="total amount">' + totalValue + '</div>' +
-                '</div>';
+            '<div class="add label">Add to Your Card:</div>' +
+            '<div class="add amount">' + toAdd + '</div>' +
+            '<div class="ride-count">' +
+            '<span class="count">' + resultArray[3] + '</span>' +
+            '<span class="rides">Rides</span>' +
+            '</div>' +
+            '<div class="bonus label">' + bonusRate + '% Bonus:</div>' +
+            '<div class="bonus amount">' + bonus + '</div>' +
+            '<div class="total label">Total Value: </div>' +
+            '<div class="total amount">' + totalValue + '</div>' +
+            '</div>';
             resultsContainer.insertAdjacentHTML('beforeEnd', resultTable);
+        }
+
+        if (resultsContainer.innerText === '') {
+            noResultTable = '<div class="no-result-table">' +
+            '<h2>No Results</h2>' +
+            '<p>Sorry! MetroSaver could not provide any results given your current balance and the fare you have selected. ' +
+            'To better understand why this might be, please tap the <strong>More&nbsp;Info</strong> tab below.</p>' +
+            '</div>';
+
+            resultsContainer.insertAdjacentHTML('afterbegin',noResultTable);
         }
     },
 
@@ -219,7 +234,8 @@ var metro_saver = {
         var selectedFare = evt.target,
             fareButtons = document.querySelectorAll('ul.fare-menu li'),
             cv = metro_saver.calc_values,
-            currBalance = metro_saver.removeDollarAndDecimal(cv.currentBalance);
+            currBalance = metro_saver.removeDollarAndDecimal(cv.currentBalance),
+            resultsArray;
 
         if (selectedFare.className.indexOf('selected') === -1) {
             //forEach cannot be used here b/c this is not an array but a nodeList
@@ -228,8 +244,7 @@ var metro_saver = {
             }
             selectedFare.className += ' selected';
             cv.costPerRide = parseInt(selectedFare.value);
-//             metro_saver.updatePanelVisibility('input-panel');
-            
+
             resultsArray = metro_saver.calculate(currBalance);
             metro_saver.updateResultsPanel(resultsArray);
         }
