@@ -141,38 +141,38 @@ body {
     .app-wrapper .results-panel .results-container {
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
-      height: 62vh; }
-    .app-wrapper .results-panel .result-table, .app-wrapper .results-panel .no-result-table {
+      height: 56vh; }
+    .app-wrapper .results-panel .summary-bar, .app-wrapper .results-panel .result-table, .app-wrapper .results-panel .no-result-table {
       padding: 1vh 2vw 1vh 2.5vw;
       margin: 0 0 1vh 0;
       width: 85.5vw;
       height: 10vh;
       border-radius: 3vw;
       background-color: rgba(255, 255, 255, 0.8); }
-      .app-wrapper .results-panel .result-table:after, .app-wrapper .results-panel .no-result-table:after {
+      .app-wrapper .results-panel .summary-bar:after, .app-wrapper .results-panel .result-table:after, .app-wrapper .results-panel .no-result-table:after {
         clear: both;
         content: ""; }
-      .app-wrapper .results-panel .result-table div, .app-wrapper .results-panel .no-result-table div {
+      .app-wrapper .results-panel .summary-bar div, .app-wrapper .results-panel .result-table div, .app-wrapper .results-panel .no-result-table div {
         float: left; }
-      .app-wrapper .results-panel .result-table .amount, .app-wrapper .results-panel .no-result-table .amount {
+      .app-wrapper .results-panel .summary-bar .amount, .app-wrapper .results-panel .result-table .amount, .app-wrapper .results-panel .no-result-table .amount {
         width: 20%;
         margin-right: 3%;
         text-align: right; }
-      .app-wrapper .results-panel .result-table .add, .app-wrapper .results-panel .no-result-table .add {
+      .app-wrapper .results-panel .summary-bar .add, .app-wrapper .results-panel .result-table .add, .app-wrapper .results-panel .no-result-table .add {
         margin-top: .25vh;
         height: 3.75vh;
         font-size: 3vh; }
-        .app-wrapper .results-panel .result-table .add.label, .app-wrapper .results-panel .no-result-table .add.label {
+        .app-wrapper .results-panel .summary-bar .add.label, .app-wrapper .results-panel .result-table .add.label, .app-wrapper .results-panel .no-result-table .add.label {
           width: 52%;
           text-align: left; }
-      .app-wrapper .results-panel .result-table .bonus, .app-wrapper .results-panel .result-table .total, .app-wrapper .results-panel .no-result-table .bonus, .app-wrapper .results-panel .no-result-table .total {
+      .app-wrapper .results-panel .summary-bar .bonus, .app-wrapper .results-panel .summary-bar .total, .app-wrapper .results-panel .result-table .bonus, .app-wrapper .results-panel .result-table .total, .app-wrapper .results-panel .no-result-table .bonus, .app-wrapper .results-panel .no-result-table .total {
         height: 3vh;
         font-size: 2.5vh; }
-        .app-wrapper .results-panel .result-table .bonus.label, .app-wrapper .results-panel .result-table .total.label, .app-wrapper .results-panel .no-result-table .bonus.label, .app-wrapper .results-panel .no-result-table .total.label {
+        .app-wrapper .results-panel .summary-bar .bonus.label, .app-wrapper .results-panel .summary-bar .total.label, .app-wrapper .results-panel .result-table .bonus.label, .app-wrapper .results-panel .result-table .total.label, .app-wrapper .results-panel .no-result-table .bonus.label, .app-wrapper .results-panel .no-result-table .total.label {
           padding-left: 3%;
           width: 49%;
           text-align: left; }
-      .app-wrapper .results-panel .result-table .ride-count, .app-wrapper .results-panel .no-result-table .ride-count {
+      .app-wrapper .results-panel .summary-bar .ride-count, .app-wrapper .results-panel .result-table .ride-count, .app-wrapper .results-panel .no-result-table .ride-count {
         float: right;
         width: 25%;
         height: 100%;
@@ -180,14 +180,28 @@ body {
         border-radius: 2vw;
         background-color: #29abe2;
         color: #FFFFFF; }
-        .app-wrapper .results-panel .result-table .ride-count .count, .app-wrapper .results-panel .no-result-table .ride-count .count {
+        .app-wrapper .results-panel .summary-bar .ride-count .count, .app-wrapper .results-panel .result-table .ride-count .count, .app-wrapper .results-panel .no-result-table .ride-count .count {
           font-size: 6vh;
           line-height: 7vh;
           height: 6vh;
           display: block; }
-        .app-wrapper .results-panel .result-table .ride-count .rides, .app-wrapper .results-panel .no-result-table .ride-count .rides {
+        .app-wrapper .results-panel .summary-bar .ride-count .rides, .app-wrapper .results-panel .result-table .ride-count .rides, .app-wrapper .results-panel .no-result-table .ride-count .rides {
           font-size: 3vh;
           display: block; }
+    .app-wrapper .results-panel .summary-bar {
+      height: 3vh;
+      width: 85vw;
+      padding-right: 2.5vw;
+      background-color: #29abe2;
+      color: white;
+      font-size: 2.35vh;
+      line-height: 3vh; }
+      .app-wrapper .results-panel .summary-bar .balance-field {
+        float: left; }
+      .app-wrapper .results-panel .summary-bar .fare-field {
+        float: right; }
+      .app-wrapper .results-panel .summary-bar span > span {
+        color: black; }
     .app-wrapper .results-panel .no-result-table {
       width: 83.5vw;
       height: auto;
@@ -245,7 +259,7 @@ body {
         .app-wrapper .tabs-panel .settings-container .fare-menu .fare {
           height: 9vh;
           padding: 0 5vw;
-          border-bottom: 1px solid #333;
+          border-bottom: 1px solid #333333;
           font-size: 3.5vh;
           line-height: 9vh; }
           .app-wrapper .tabs-panel .settings-container .fare-menu .fare.selected {

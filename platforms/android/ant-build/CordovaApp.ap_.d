@@ -54,8 +54,14 @@
 /Volumes/Volcanic Drive/Projects/Mobile/MetroSaver/platforms/android/assets/www/fonts/Cabin/Cabin-SemiBoldItalic.ttf \
 /Volumes/Volcanic Drive/Projects/Mobile/MetroSaver/platforms/android/assets/www/fonts/Cabin/OFL.txt \
 /Volumes/Volcanic Drive/Projects/Mobile/MetroSaver/platforms/android/assets/www/fonts/icon-font/entypo.ttf \
+/Volumes/Volcanic Drive/Projects/Mobile/MetroSaver/platforms/android/assets/www/img/icons \
 /Volumes/Volcanic Drive/Projects/Mobile/MetroSaver/platforms/android/assets/www/img/logo.png \
 /Volumes/Volcanic Drive/Projects/Mobile/MetroSaver/platforms/android/assets/www/img/old_city_hall.jpg \
+/Volumes/Volcanic Drive/Projects/Mobile/MetroSaver/platforms/android/assets/www/img/icons/android \
+/Volumes/Volcanic Drive/Projects/Mobile/MetroSaver/platforms/android/assets/www/img/icons/android/hdpi.png \
+/Volumes/Volcanic Drive/Projects/Mobile/MetroSaver/platforms/android/assets/www/img/icons/android/ldpi.png \
+/Volumes/Volcanic Drive/Projects/Mobile/MetroSaver/platforms/android/assets/www/img/icons/android/mdpi.png \
+/Volumes/Volcanic Drive/Projects/Mobile/MetroSaver/platforms/android/assets/www/img/icons/android/xhdpi.png \
 /Volumes/Volcanic Drive/Projects/Mobile/MetroSaver/platforms/android/assets/www/js/index.js \
 /Volumes/Volcanic Drive/Projects/Mobile/MetroSaver/platforms/android/assets/www/js/libs \
 /Volumes/Volcanic Drive/Projects/Mobile/MetroSaver/platforms/android/assets/www/js/metro_saver.js \

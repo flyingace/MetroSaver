@@ -9,4 +9,10 @@
     </author>
     <content src="index.html" />
     <access origin="*" />
+    <platform name="android">
+        <icon src="/www/img/icons/android/ldpi.png" density="ldpi" />
+        <icon src="/www/img/icons/android/mdpi.png" density="mdpi" />
+        <icon src="/www/img/icons/android/hdpi.png" density="hdpi" />
+        <icon src="/www/img/icons/android/xhdpi.png" density="xhdpi" />
+    </platform>
 </widget>

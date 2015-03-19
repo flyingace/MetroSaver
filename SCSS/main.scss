@@ -1,3 +1,8 @@
+//SCSS Variables
+
+$primary-blue-solid: rgb(41, 171, 226);
+
+//
 @font-face {
   font-family: 'Cabin';
   src: url('../fonts/Cabin/Cabin-Regular.ttf') format('truetype');
@@ -16,7 +21,7 @@
 }
 
 a {
-  color: rgb(41, 171, 226);
+  color: $primary-blue-solid;
   text-decoration: none;
 }
 
@@ -198,10 +203,10 @@ body {
     .results-container {
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
-      height: 62vh;
+      height: 56vh;
     }
 
-    .result-table, .no-result-table {
+    .summary-bar, .result-table, .no-result-table {
       padding: 1vh 2vw 1vh 2.5vw;
       margin: 0 0 1vh 0;
       width: 85.5vw;
@@ -252,7 +257,7 @@ body {
         height: 100%;
         text-align: center;
         border-radius: 2vw;
-        background-color: rgb(41, 171, 226);
+        background-color: $primary-blue-solid;
         color: #FFFFFF;
 
         .count {
@@ -266,6 +271,28 @@ body {
           font-size: 3vh;
           display: block;
         }
+      }
+    }
+
+    .summary-bar {
+      height: 3vh;
+      width: 85vw;
+      padding-right: 2.5vw;
+      background-color: $primary-blue-solid;
+      color: white;
+      font-size: 2.35vh;
+      line-height: 3vh;
+
+      .balance-field {
+        float: left;
+      }
+
+      .fare-field {
+        float: right;
+      }
+
+      span > span {
+        color:black;
       }
     }
 
@@ -352,7 +379,7 @@ body {
         .fare {
           height: 9vh;
           padding: 0 5vw;
-          border-bottom: 1px solid #333;
+          border-bottom: 1px solid #333333;
           font-size: 3.5vh;
           line-height: 9vh;
 

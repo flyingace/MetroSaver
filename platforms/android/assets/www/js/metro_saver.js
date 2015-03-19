@@ -65,7 +65,7 @@ var metro_saver = {
         metro_saver.updatePanelVisibility('input');
     },
 
-    onTouchStart: function(e) {
+    onTouchStart: function() {
         return true;
     },
 
@@ -195,6 +195,8 @@ var metro_saver = {
             resultsContainer = document.getElementById('results'),
             resultTable, noResultTable, resultArray, toAdd, bonusRate, bonus, totalValue;
 
+        metro_saver.updateSummary(cv.currentBalance, cv.costPerRide);
+
         resultsContainer.innerText = "";
 
         for (var i = 0; i < resultsArray.length; i++) {
@@ -216,7 +218,7 @@ var metro_saver = {
             '<div class="total label">Total Value: </div>' +
             '<div class="total amount">' + totalValue + '</div>' +
             '</div>';
-            resultsContainer.insertAdjacentHTML('beforeEnd', resultTable);
+            resultsContainer.insertAdjacentHTML('beforeend', resultTable);
         }
 
         if (resultsContainer.innerText === '') {
@@ -228,6 +230,15 @@ var metro_saver = {
 
             resultsContainer.insertAdjacentHTML('afterbegin',noResultTable);
         }
+    },
+
+    updateSummary: function(currBalance, _rideCost) {
+        var summaryBar = document.getElementById('summary-bar'),
+            rideCost = metro_saver.restoreDollarAndDecimal(_rideCost),
+            summaryText = '<span class="balance-field"><span>Current Balance:</span> ' + currBalance + '</span><span class="fare-field"><span>Selected Fare:</span> ' + rideCost + '</span>';
+
+        summaryBar.innerText = '';
+        summaryBar.insertAdjacentHTML('afterbegin', summaryText);
     },
 
     onFareSelected: function (evt) {

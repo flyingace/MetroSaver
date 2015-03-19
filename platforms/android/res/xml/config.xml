@@ -1,6 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.flyingacedesign.metrosaver" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <preference name="loglevel" value="DEBUG" />
+    <icon density="ldpi" src="/www/img/icons/android/ldpi.png" />
+    <icon density="mdpi" src="/www/img/icons/android/mdpi.png" />
+    <icon density="hdpi" src="/www/img/icons/android/hdpi.png" />
+    <icon density="xhdpi" src="/www/img/icons/android/xhdpi.png" />
     <name>MetroSaver</name>
     <description>
         Save your time. Save your money.
