@@ -1,4 +1,4 @@
-/*global $, jQuery, alert*/
+/*global $, jQuery, alert, FastClick*/
 
 var metro_saver = {
 
@@ -26,6 +26,13 @@ var metro_saver = {
         keypadButton.bind('click', this.onKeypadClicked);
         fareButton.bind('click', this.onFareSelected);
         keypadButton.bind('touchStart', this.onTouchStart);
+
+        //instantiate FastClick library
+        if (!!document.addEventListener) {
+            document.addEventListener('DOMContentLoaded', function() {
+                FastClick.attach(document.body);
+            }, false);
+        }
     },
 
     onKeypadClicked: function (evt) {
@@ -193,13 +200,14 @@ var metro_saver = {
         var cv = metro_saver.calc_values,
             minAddForBonus = cv.minAddForBonus,
             resultsContainer = document.getElementById('results'),
-            resultTable, noResultTable, resultArray, toAdd, bonusRate, bonus, totalValue;
+            resultTable, noResultTable, resultArray, toAdd, bonusRate, bonus, totalValue,
+            i;
 
         metro_saver.updateSummary(cv.currentBalance, cv.costPerRide);
 
         resultsContainer.innerText = "";
 
-        for (var i = 0; i < resultsArray.length; i++) {
+        for (i = 0; i < resultsArray.length; i++) {
             resultArray = resultsArray[i];
             toAdd = metro_saver.restoreDollarAndDecimal(resultArray[0]);
             bonusRate = (resultArray[0] >= minAddForBonus) ? cv.bonusRate.toString() : '0';
@@ -246,15 +254,16 @@ var metro_saver = {
             fareButtons = document.querySelectorAll('ul.fare-menu li'),
             cv = metro_saver.calc_values,
             currBalance = metro_saver.removeDollarAndDecimal(cv.currentBalance),
-            resultsArray;
+            resultsArray,
+            i;
 
         if (selectedFare.className.indexOf('selected') === -1) {
             //forEach cannot be used here b/c this is not an array but a nodeList
-            for (var i = 0; i < fareButtons.length; i++) {
+            for (i = 0; i < fareButtons.length; i++) {
                 fareButtons[i].className = 'fare';
             }
             selectedFare.className += ' selected';
-            cv.costPerRide = parseInt(selectedFare.value);
+            cv.costPerRide = parseInt(selectedFare.value, 10);
 
             resultsArray = metro_saver.calculate(currBalance);
             metro_saver.updateResultsPanel(resultsArray);

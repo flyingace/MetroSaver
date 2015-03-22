@@ -1,5 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.flyingacedesign.metrosaver" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.flyingacedesign.metrosaver" version="2.0.2" xmlns="http://www.w3.org/ns/widgets"
+        xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>MetroSaver</name>
     <description>
         Save your time. Save your money.
@@ -7,12 +8,21 @@
     <author email="support@flyingacedesign.com" href="http://metrosaver.flyingacedesign.com">
         Flying Ace Design
     </author>
-    <content src="index.html" />
-    <access origin="*" />
+    <content src="index.html"/>
+    <access origin="*"/>
     <platform name="android">
-        <icon src="/www/img/icons/android/ldpi.png" density="ldpi" />
-        <icon src="/www/img/icons/android/mdpi.png" density="mdpi" />
-        <icon src="/www/img/icons/android/hdpi.png" density="hdpi" />
-        <icon src="/www/img/icons/android/xhdpi.png" density="xhdpi" />
+        <icon src="www/img/android/icons/ldpi.png" density="ldpi"/>
+        <icon src="www/img/android/icons/mdpi.png" density="mdpi"/>
+        <icon src="www/img/android/icons/hdpi.png" density="hdpi"/>
+        <icon src="www/img/android/icons/xhdpi.png" density="xhdpi"/>
     </platform>
+    <platform name="android">
+        <splash src="www/img/android/splash/splash_port_hdpi.png" density="port-hdpi"/>
+        <splash src="www/img/android/splash/splash_port_ldpi.png" density="port-ldpi"/>
+        <splash src="www/img/android/splash/splash_port_mdpi.png" density="port-mdpi"/>
+        <splash src="www/img/android/splash/splash_port_xhdpi.png" density="port-xhdpi"/>
+    </platform>
+    <preference name="SplashScreen" value="screen" />
+    <preference name="SplashScreenDelay" value="3000"/>
+    <preference name="orientation" value="portrait"/>
 </widget>

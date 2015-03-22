@@ -7,7 +7,6 @@
 /Volumes/Volcanic Drive/Projects/Mobile/MetroSaver/platforms/android/ant-build/classes/com/flyingacedesign/metrosaver/R$xml.class \
 /Volumes/Volcanic Drive/Projects/Mobile/MetroSaver/platforms/android/ant-build/classes/com/flyingacedesign/metrosaver/R.class \
 /Volumes/Volcanic Drive/Projects/Mobile/MetroSaver/platforms/android/ant-build/classes/io/cordova/hellocordova/BuildConfig.class \
-/Volumes/Volcanic Drive/Projects/Mobile/MetroSaver/platforms/android/ant-build/classes/io/cordova/hellocordova/CordovaApp.class \
 /Volumes/Volcanic Drive/Projects/Mobile/MetroSaver/platforms/android/ant-build/classes/io/cordova/hellocordova/R$attr.class \
 /Volumes/Volcanic Drive/Projects/Mobile/MetroSaver/platforms/android/ant-build/classes/io/cordova/hellocordova/R$drawable.class \
 /Volumes/Volcanic Drive/Projects/Mobile/MetroSaver/platforms/android/ant-build/classes/io/cordova/hellocordova/R$string.class \
