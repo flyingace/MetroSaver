@@ -1,10 +1,6 @@
 /Volumes/Volcanic Drive/Projects/Mobile/MetroSaver/platforms/android/ant-build/CordovaApp.ap_ \
  : /Volumes/Volcanic Drive/Projects/Mobile/MetroSaver/platforms/android/res/drawable/icon.png \
 /Volumes/Volcanic Drive/Projects/Mobile/MetroSaver/platforms/android/res/drawable-hdpi/icon.png \
-/Volumes/Volcanic Drive/Projects/Mobile/MetroSaver/platforms/android/res/drawable-land-hdpi/screen.png \
-/Volumes/Volcanic Drive/Projects/Mobile/MetroSaver/platforms/android/res/drawable-land-ldpi/screen.png \
-/Volumes/Volcanic Drive/Projects/Mobile/MetroSaver/platforms/android/res/drawable-land-mdpi/screen.png \
-/Volumes/Volcanic Drive/Projects/Mobile/MetroSaver/platforms/android/res/drawable-land-xhdpi/screen.png \
 /Volumes/Volcanic Drive/Projects/Mobile/MetroSaver/platforms/android/res/drawable-ldpi/icon.png \
 /Volumes/Volcanic Drive/Projects/Mobile/MetroSaver/platforms/android/res/drawable-mdpi/icon.png \
 /Volumes/Volcanic Drive/Projects/Mobile/MetroSaver/platforms/android/res/drawable-port-hdpi/screen.png \
@@ -16,10 +12,6 @@
 /Volumes/Volcanic Drive/Projects/Mobile/MetroSaver/platforms/android/res/xml/config.xml \
 /Volumes/Volcanic Drive/Projects/Mobile/MetroSaver/platforms/android/ant-build/res/drawable/icon.png \
 /Volumes/Volcanic Drive/Projects/Mobile/MetroSaver/platforms/android/ant-build/res/drawable-hdpi/icon.png \
-/Volumes/Volcanic Drive/Projects/Mobile/MetroSaver/platforms/android/ant-build/res/drawable-land-hdpi/screen.png \
-/Volumes/Volcanic Drive/Projects/Mobile/MetroSaver/platforms/android/ant-build/res/drawable-land-ldpi/screen.png \
-/Volumes/Volcanic Drive/Projects/Mobile/MetroSaver/platforms/android/ant-build/res/drawable-land-mdpi/screen.png \
-/Volumes/Volcanic Drive/Projects/Mobile/MetroSaver/platforms/android/ant-build/res/drawable-land-xhdpi/screen.png \
 /Volumes/Volcanic Drive/Projects/Mobile/MetroSaver/platforms/android/ant-build/res/drawable-ldpi/icon.png \
 /Volumes/Volcanic Drive/Projects/Mobile/MetroSaver/platforms/android/ant-build/res/drawable-mdpi/icon.png \
 /Volumes/Volcanic Drive/Projects/Mobile/MetroSaver/platforms/android/ant-build/res/drawable-port-hdpi/screen.png \
@@ -54,11 +46,25 @@
 /Volumes/Volcanic Drive/Projects/Mobile/MetroSaver/platforms/android/assets/www/fonts/Cabin/Cabin-SemiBoldItalic.ttf \
 /Volumes/Volcanic Drive/Projects/Mobile/MetroSaver/platforms/android/assets/www/fonts/Cabin/OFL.txt \
 /Volumes/Volcanic Drive/Projects/Mobile/MetroSaver/platforms/android/assets/www/fonts/icon-font/entypo.ttf \
+/Volumes/Volcanic Drive/Projects/Mobile/MetroSaver/platforms/android/assets/www/img/android \
+/Volumes/Volcanic Drive/Projects/Mobile/MetroSaver/platforms/android/assets/www/img/ios \
 /Volumes/Volcanic Drive/Projects/Mobile/MetroSaver/platforms/android/assets/www/img/logo.png \
 /Volumes/Volcanic Drive/Projects/Mobile/MetroSaver/platforms/android/assets/www/img/old_city_hall.jpg \
+/Volumes/Volcanic Drive/Projects/Mobile/MetroSaver/platforms/android/assets/www/img/android/icon_512.png \
+/Volumes/Volcanic Drive/Projects/Mobile/MetroSaver/platforms/android/assets/www/img/android/icons \
+/Volumes/Volcanic Drive/Projects/Mobile/MetroSaver/platforms/android/assets/www/img/android/splash \
+/Volumes/Volcanic Drive/Projects/Mobile/MetroSaver/platforms/android/assets/www/img/android/icons/hdpi.png \
+/Volumes/Volcanic Drive/Projects/Mobile/MetroSaver/platforms/android/assets/www/img/android/icons/ldpi.png \
+/Volumes/Volcanic Drive/Projects/Mobile/MetroSaver/platforms/android/assets/www/img/android/icons/mdpi.png \
+/Volumes/Volcanic Drive/Projects/Mobile/MetroSaver/platforms/android/assets/www/img/android/icons/xhdpi.png \
+/Volumes/Volcanic Drive/Projects/Mobile/MetroSaver/platforms/android/assets/www/img/android/splash/splash_port_hdpi.png \
+/Volumes/Volcanic Drive/Projects/Mobile/MetroSaver/platforms/android/assets/www/img/android/splash/splash_port_ldpi.png \
+/Volumes/Volcanic Drive/Projects/Mobile/MetroSaver/platforms/android/assets/www/img/android/splash/splash_port_mdpi.png \
+/Volumes/Volcanic Drive/Projects/Mobile/MetroSaver/platforms/android/assets/www/img/android/splash/splash_port_xhdpi.png \
 /Volumes/Volcanic Drive/Projects/Mobile/MetroSaver/platforms/android/assets/www/js/index.js \
 /Volumes/Volcanic Drive/Projects/Mobile/MetroSaver/platforms/android/assets/www/js/libs \
 /Volumes/Volcanic Drive/Projects/Mobile/MetroSaver/platforms/android/assets/www/js/metro_saver.js \
+/Volumes/Volcanic Drive/Projects/Mobile/MetroSaver/platforms/android/assets/www/js/libs/fastclick.js \
 /Volumes/Volcanic Drive/Projects/Mobile/MetroSaver/platforms/android/assets/www/js/libs/jquery-2.1.3.min.js \
 /Volumes/Volcanic Drive/Projects/Mobile/MetroSaver/platforms/android/assets/www/js/libs/jquery-2.1.3.min.map \
 /Volumes/Volcanic Drive/Projects/Mobile/MetroSaver/platforms/android/ant-build/AndroidManifest.xml \

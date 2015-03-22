@@ -1,6 +1,14 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.flyingacedesign.metrosaver" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.flyingacedesign.metrosaver" version="2.0.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <preference name="loglevel" value="DEBUG" />
+    <icon density="ldpi" src="www/img/android/icons/ldpi.png" />
+    <icon density="mdpi" src="www/img/android/icons/mdpi.png" />
+    <icon density="hdpi" src="www/img/android/icons/hdpi.png" />
+    <icon density="xhdpi" src="www/img/android/icons/xhdpi.png" />
+    <splash density="port-hdpi" src="www/img/android/splash/splash_port_hdpi.png" />
+    <splash density="port-ldpi" src="www/img/android/splash/splash_port_ldpi.png" />
+    <splash density="port-mdpi" src="www/img/android/splash/splash_port_mdpi.png" />
+    <splash density="port-xhdpi" src="www/img/android/splash/splash_port_xhdpi.png" />
     <name>MetroSaver</name>
     <description>
         Save your time. Save your money.
@@ -10,4 +18,7 @@
     </author>
     <content src="index.html" />
     <access origin="*" />
+    <preference name="SplashScreen" value="screen" />
+    <preference name="SplashScreenDelay" value="3000" />
+    <preference name="orientation" value="portrait" />
 </widget>
