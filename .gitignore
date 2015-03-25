@@ -49,4 +49,4 @@ crashlytics-build.properties
 
 
 
-platforms
+platforms/*
