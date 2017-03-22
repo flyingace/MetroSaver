@@ -31,7 +31,7 @@ h3 {
   font-family: 'entypo', 'Cabin', sans-serif; }
 
 .touch-scroll, .app-wrapper .tabs-panel .info-container {
-  overflow-y: auto;
+  overflow-y: scroll;
   -webkit-overflow-scrolling: touch; }
 
 .clearfix:after {
@@ -58,12 +58,22 @@ body {
   height: 77vh;
   background: url("../img/logo.png") no-repeat center 2%;
   background-size: 96%; }
-  .app-wrapper.input .input-panel, .app-wrapper.input .results-panel {
+  .app-wrapper.input .input-panel {
     animation: input-visible 0.3s;
     -webkit-animation: input-visible 0.3s;
     animation-fill-mode: forwards;
     -webkit-animation-fill-mode: forwards; }
-  .app-wrapper.results .input-panel, .app-wrapper.results .results-panel {
+  .app-wrapper.input .results-panel {
+    animation: results-hidden 0.3s;
+    -webkit-animation: results-hidden 0.3s;
+    animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards; }
+  .app-wrapper.results .input-panel {
+    animation: input-hidden 0.3s;
+    -webkit-animation: input-hidden 0.3s;
+    animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards; }
+  .app-wrapper.results .results-panel {
     animation: results-visible 0.3s;
     -webkit-animation: results-visible 0.3s;
     animation-fill-mode: forwards;
@@ -75,7 +85,8 @@ body {
     margin: 0;
     padding: 0 5vw;
     overflow: hidden;
-    transform: translateZ(0); }
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0); }
     .app-wrapper .panel:after {
       clear: both;
       content: ""; }
@@ -141,7 +152,7 @@ body {
   .app-wrapper .results-panel {
     left: 100vw; }
     .app-wrapper .results-panel .results-container {
-      overflow-y: auto;
+      overflow-y: scroll;
       -webkit-overflow-scrolling: touch;
       height: 56vh; }
     .app-wrapper .results-panel .summary-bar, .app-wrapper .results-panel .result-table, .app-wrapper .results-panel .no-result-table {
@@ -151,6 +162,9 @@ body {
       height: 10vh;
       border-radius: 3vw;
       background-color: rgba(255, 255, 255, 0.8); }
+      .app-wrapper .results-panel .summary-bar *, .app-wrapper .results-panel .result-table *, .app-wrapper .results-panel .no-result-table * {
+        user-select: none;
+        -webkit-user-select: none; }
       .app-wrapper .results-panel .summary-bar:after, .app-wrapper .results-panel .result-table:after, .app-wrapper .results-panel .no-result-table:after {
         clear: both;
         content: ""; }

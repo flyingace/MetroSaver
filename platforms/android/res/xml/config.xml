@@ -1,15 +1,9 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.flyingacedesign.metrosaver" version="2.0.3" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <preference name="loglevel" value="DEBUG" />
-    <icon density="ldpi" src="www/img/android/icons/ldpi.png" />
-    <icon density="mdpi" src="www/img/android/icons/mdpi.png" />
-    <icon density="hdpi" src="www/img/android/icons/hdpi.png" />
-    <icon density="xhdpi" src="www/img/android/icons/xhdpi.png" />
-    <splash density="port-hdpi" src="www/img/android/splash/splash_port_hdpi.9.png" />
-    <splash density="port-ldpi" src="www/img/android/splash/splash_port_ldpi.9.png" />
-    <splash density="port-mdpi" src="www/img/android/splash/splash_port_mdpi.9.png" />
-    <splash density="port-xhdpi" src="www/img/android/splash/splash_port_xhdpi.9.png" />
-    <splash density="port-xxhdpi" src="www/img/android/splash/splash_port_xxhdpi.9.png" />
+<widget id="com.flyingacedesign.metrosaver" version="2.0.7" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <feature name="StatusBar">
+        <param name="android-package" value="org.apache.cordova.statusbar.StatusBar" />
+        <param name="onload" value="true" />
+    </feature>
     <name>MetroSaver</name>
     <description>
         Save your time. Save your money.
@@ -19,7 +13,20 @@
     </author>
     <content src="index.html" />
     <access origin="*" />
+    <icon density="ldpi" src="www/img/android/icons/ldpi.png" />
+    <icon density="mdpi" src="www/img/android/icons/mdpi.png" />
+    <icon density="hdpi" src="www/img/android/icons/hdpi.png" />
+    <icon density="xhdpi" src="www/img/android/icons/xhdpi.png" />
+    <splash density="port-hdpi" src="www/img/android/splash/splash_port_hdpi.9.png" />
+    <splash density="port-ldpi" src="www/img/android/splash/splash_port_ldpi.9.png" />
+    <splash density="port-mdpi" src="www/img/android/splash/splash_port_mdpi.9.png" />
+    <splash density="port-xhdpi" src="www/img/android/splash/splash_port_xhdpi.9.png" />
+    <preference name="loglevel" value="DEBUG" />
+    <preference name="StatusBarOverlaysWebView" value="false" />
+    <preference name="StatusBarBackgroundColor" value="#000000" />
     <preference name="SplashScreen" value="screen" />
     <preference name="SplashScreenDelay" value="3000" />
-    <preference name="orientation" value="portrait" />
+    <preference name="Orientation" value="portrait" />
+    <preference name="DisallowOverscroll" value="true" />
+    <preference name="Fullscreen" value="true" />
 </widget>
