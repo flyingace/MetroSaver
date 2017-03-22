@@ -7,5 +7,9 @@
         "files": {}
     },
     "installed_plugins": {},
-    "dependent_plugins": {}
+    "dependent_plugins": {
+        "org.apache.cordova.statusbar": {
+            "PACKAGE_NAME": "com.flyingacedesign.metrosaver"
+        }
+    }
 }

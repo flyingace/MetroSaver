@@ -47,7 +47,7 @@ h3 {
 }
 
 .touch-scroll {
-  overflow-y: auto;
+  overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
 }
 
@@ -80,16 +80,28 @@ body {
   background-size: 96%;
 
   &.input {
-    .input-panel, .results-panel {
+    .input-panel {
       animation: input-visible 0.3s;
       -webkit-animation: input-visible 0.3s;
+      animation-fill-mode: forwards;
+      -webkit-animation-fill-mode: forwards;
+    }
+    .results-panel {
+      animation: results-hidden 0.3s;
+      -webkit-animation: results-hidden 0.3s;
       animation-fill-mode: forwards;
       -webkit-animation-fill-mode: forwards;
     }
   }
 
   &.results {
-    .input-panel, .results-panel {
+    .input-panel {
+      animation: input-hidden 0.3s;
+      -webkit-animation: input-hidden 0.3s;
+      animation-fill-mode: forwards;
+      -webkit-animation-fill-mode: forwards;
+    }
+    .results-panel {
       animation: results-visible 0.3s;
       -webkit-animation: results-visible 0.3s;
       animation-fill-mode: forwards;
@@ -105,6 +117,7 @@ body {
     padding: 0 5vw;
     overflow: hidden;
     transform: translateZ(0);
+    -webkit-transform: translateZ(0);
 
     &:after {
       clear: both;
@@ -203,7 +216,7 @@ body {
     left: 100vw;
 
     .results-container {
-      overflow-y: auto;
+      overflow-y: scroll;
       -webkit-overflow-scrolling: touch;
       height: 56vh;
     }
@@ -215,6 +228,11 @@ body {
       height: 10vh;
       border-radius: 3vw;
       background-color: rgba(255, 255, 255, .8);
+
+      * {
+        user-select: none;
+        -webkit-user-select: none;
+      }
 
       &:after {
         clear: both;

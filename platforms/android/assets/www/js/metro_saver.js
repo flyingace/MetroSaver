@@ -1,18 +1,18 @@
-/*global $, jQuery, alert, FastClick*/
+/*global $, FastClick, window, document*/
 
 var metro_saver = {
 
     calc_values: {
-        'minAdd': 100,
-        'maxAdd': 10000,
-        'minAddForBonus': 550,
-        'maxCardValue': 10000,
-        'costPerRide': 275,
-        'toAdd': 0,
-        'increment': 5,
-        'bonusRate': 11,
-        'currentBalance': '$00.00',
-        'visibleTab': ''
+        minAdd: 100,
+        maxAdd: 10000,
+        minAddForBonus: 550,
+        maxCardValue: 10000,
+        costPerRide: 275,
+        toAdd: 0,
+        increment: 5,
+        bonusRate: 5,
+        currentBalance: '$00.00',
+        visibleTab: ''
     },
 
     initialize: function () {
@@ -28,8 +28,8 @@ var metro_saver = {
         keypadButton.bind('touchStart', this.onTouchStart);
 
         //instantiate FastClick library
-        if (!!document.addEventListener) {
-            document.addEventListener('DOMContentLoaded', function() {
+        if (!document.addEventListener) {
+            document.addEventListener('DOMContentLoaded', function () {
                 FastClick.attach(document.body);
             }, false);
         }
@@ -72,7 +72,7 @@ var metro_saver = {
         metro_saver.updatePanelVisibility('input');
     },
 
-    onTouchStart: function() {
+    onTouchStart: function () {
         return true;
     },
 
@@ -205,7 +205,7 @@ var metro_saver = {
 
         metro_saver.updateSummary(cv.currentBalance, cv.costPerRide);
 
-        resultsContainer.innerText = "";
+        resultsContainer.innerText = '';
 
         for (i = 0; i < resultsArray.length; i++) {
             resultArray = resultsArray[i];
@@ -215,32 +215,32 @@ var metro_saver = {
             totalValue = metro_saver.restoreDollarAndDecimal(resultArray[2]);
 
             resultTable = '<div class="result-table">' +
-            '<div class="add label">Add to Your Card:</div>' +
-            '<div class="add amount">' + toAdd + '</div>' +
-            '<div class="ride-count">' +
-            '<span class="count">' + resultArray[3] + '</span>' +
-            '<span class="rides">Rides</span>' +
-            '</div>' +
-            '<div class="bonus label">' + bonusRate + '% Bonus:</div>' +
-            '<div class="bonus amount">' + bonus + '</div>' +
-            '<div class="total label">Total Value: </div>' +
-            '<div class="total amount">' + totalValue + '</div>' +
-            '</div>';
+                '<div class="add label">Add to Your Card:</div>' +
+                '<div class="add amount">' + toAdd + '</div>' +
+                '<div class="ride-count">' +
+                '<span class="count">' + resultArray[3] + '</span>' +
+                '<span class="rides">Rides</span>' +
+                '</div>' +
+                '<div class="bonus label">' + bonusRate + '% Bonus:</div>' +
+                '<div class="bonus amount">' + bonus + '</div>' +
+                '<div class="total label">Total Value: </div>' +
+                '<div class="total amount">' + totalValue + '</div>' +
+                '</div>';
             resultsContainer.insertAdjacentHTML('beforeend', resultTable);
         }
 
         if (resultsContainer.innerText === '') {
             noResultTable = '<div class="no-result-table">' +
-            '<h2>No Results</h2>' +
-            '<p>Sorry! MetroSaver could not provide any results given your current balance and the fare you have selected. ' +
-            'To better understand why this might be, please tap the <strong>More&nbsp;Info</strong> tab below.</p>' +
-            '</div>';
+                '<h2>No Results</h2>' +
+                '<p>Sorry! MetroSaver could not provide any results given your current balance and the fare you have selected. ' +
+                'To better understand why this might be, please tap the <strong>More&nbsp;Info</strong> tab below.</p>' +
+                '</div>';
 
-            resultsContainer.insertAdjacentHTML('afterbegin',noResultTable);
+            resultsContainer.insertAdjacentHTML('afterbegin', noResultTable);
         }
     },
 
-    updateSummary: function(currBalance, _rideCost) {
+    updateSummary: function (currBalance, _rideCost) {
         var summaryBar = document.getElementById('summary-bar'),
             rideCost = metro_saver.restoreDollarAndDecimal(_rideCost),
             summaryText = '<span class="balance-field"><span>Current Balance:</span> ' + currBalance + '</span><span class="fare-field"><span>Selected Fare:</span> ' + rideCost + '</span>';
@@ -269,7 +269,7 @@ var metro_saver = {
             metro_saver.updateResultsPanel(resultsArray);
         }
 
-        setTimeout(function () {
+        window.setTimeout(function () {
             metro_saver.updateTabsVisibility('');
         }, 300);
     }

@@ -1,22 +1,4 @@
 <!DOCTYPE html>
-<!--
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
 <html>
 <head>
     <meta charset="utf-8"/>
@@ -24,7 +6,7 @@
     <meta name="msapplication-tap-highlight" content="no"/>
     <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
     <meta name="viewport"
-          content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi"/>
+          content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, target-densitydpi=device-dpi width=device-width height=device-height"/> <!-- width=device-width, height=device-height, -->
     <link rel="stylesheet" type="text/css" href="css/main.css"/>
     <link rel="stylesheet" type="text/css" href="css/animations.css"/>
     <title>MetroSaver</title>
@@ -32,8 +14,12 @@
     <script type="application/javascript" src="js/libs/fastclick.js"></script>
 </head>
 <body>
-<div class="splash-screen" id="splash-screen">
-    <div class="logo"></div>
+<div class="app" style="display:none;">
+    <div id="deviceready" class="blink">
+        <p class="event listening">Connecting to Device</p>
+
+        <p class="event received">Device is Ready</p>
+    </div>
 </div>
 
 <div class="app-wrapper">
@@ -82,7 +68,7 @@
                 York City by calculating exactly how much to add to your MetroCard so that every penny on
                 your card goes toward your rides.</p>
 
-            <p>MTA Station Booths and MetroCard Vending Machines (MVMs) add an 11% bonus for all MetroCard purchases
+            <p>MTA Station Booths and MetroCard Vending Machines (MVMs) add an 5% bonus for all MetroCard purchases
                 over $5.50. That&apos;s great, but sometimes it means you end up with money on your MetroCard that won&apos;t be
                 enough to purchase another fare.</p>
 
@@ -105,12 +91,12 @@
 
             <p>If you&apos;re buying a brand new MetroCard you will be charged an additional $1.00 for the card
                 itself. This charge adds no value to your MetroCard, cannot be refunded, and does not count towards the
-                amount you need to spend in order to get the 11% bonus. If your MetroCard gets old and worn,
+                amount you need to spend in order to get the 5% bonus. If your MetroCard gets old and worn,
                 however, you can exchange it for a new one at no cost.</p>
 
-            <h3>Facts and Figures</h3>
+            <h3>Facts &amp; Figures</h3>
             <ul>
-                <li>An 11% bonus will be added any time $5.50 or more is added to a MetroCard.</li>
+                <li>An 5% bonus will be added any time $5.50 or more is added to a MetroCard.</li>
                 <li>The minimum you can add to your MetroCard:</li>
                 <ul>
                     <li>At a station booth: 1&cent;</li>
@@ -119,7 +105,7 @@
                 <li>The maximum you can add to your MetroCard:</li>
                 <ul>
                     <li>At a station booth: $80</li>
-                    <li>At a MVM: $100 (including the 11% bonus)</li>
+                    <li>At a MVM: $100 (including the 5% bonus)</li>
                 </ul>
                 <li>The greatest balance you can carry on your MetroCard: $100.00</li>
 
@@ -150,11 +136,15 @@
                 comments or would like to report a bug, please drop us a line at <a
                         href="mailto:support@flyingacedesign.com?subject=MetroSaver">support@flyingacedesign.com</a></p>
 
+            <h3>Credits</h3>
+
+            <p>The photograph of Old City Hall Station was taken by John-Paul Palescandolo. The image of the elevated 7
+                Train, "New R-188 Trains (14581509758)" by Metropolitan Transportation Authority of the State of New
+                York - New R-188 Trains, is licensed under CC BY 2.0 via Wikimedia Commons.</p>
         </div>
     </div>
 </div>
 <script type="text/javascript" src="cordova.js"></script>
-<script type="text/javascript" src="js/index.js"></script>
 <script type="text/javascript" src="js/metro_saver.js"></script>
 </body>
 </html>

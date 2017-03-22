@@ -1,5 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.flyingacedesign.metrosaver" version="2.0.3" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.flyingacedesign.metrosaver" version="2.0.7" xmlns="http://www.w3.org/ns/widgets"
+        xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <preference name="AllowInlineMediaPlayback" value="false" />
     <preference name="AutoHideSplashScreen" value="true" />
     <preference name="BackupWebStorage" value="cloud" />
@@ -19,6 +20,22 @@
     <feature name="LocalStorage">
         <param name="ios-package" value="CDVLocalStorage" />
     </feature>
+    <feature name="HandleOpenUrl">
+        <param name="ios-package" value="CDVHandleOpenURL" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="IntentAndNavigationFilter">
+        <param name="ios-package" value="CDVIntentAndNavigationFilter" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="GestureHandler">
+        <param name="ios-package" value="CDVGestureHandler" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="StatusBar">
+        <param name="ios-package" value="CDVStatusBar" />
+        <param name="onload" value="true" />
+    </feature>
     <name>MetroSaver</name>
     <description>
         Save your time. Save your money.
@@ -28,7 +45,47 @@
     </author>
     <content src="index.html" />
     <access origin="*" />
+    <icon height="180" src="www/img/ios/icons/icon-60@3x.png" width="180" />
+    <icon height="60" src="www/img/ios/icons/icon-60.png" width="60" />
+    <icon height="120" src="www/img/ios/icons/icon-60@2x.png" width="120" />
+    <icon height="76" src="www/img/ios/icons/icon-76.png" width="76" />
+    <icon height="152" src="www/img/ios/icons/icon-76@2x.png" width="152" />
+    <icon height="40" src="www/img/ios/icons/icon-40.png" width="40" />
+    <icon height="80" src="www/img/ios/icons/icon-40@2x.png" width="80" />
+    <icon height="57" src="www/img/ios/icons/icon.png" width="57" />
+    <icon height="114" src="www/img/ios/icons/icon@2x.png" width="114" />
+    <icon height="72" src="www/img/ios/icons/icon-72.png" width="72" />
+    <icon height="144" src="www/img/ios/icons/icon-72@2x.png" width="144" />
+    <icon height="29" src="www/img/ios/icons/icon-small.png" width="29" />
+    <icon height="58" src="www/img/ios/icons/icon-small@2x.png" width="58" />
+    <icon height="50" src="www/img/ios/icons/icon-50.png" width="50" />
+    <icon height="100" src="www/img/ios/icons/icon-50@2x.png" width="100" />
+    <splash height="480" src="www/img/ios/splash/Default~iphone.png" width="320" />
+    <splash height="960" src="www/img/ios/splash/Default@2x~iphone.png" width="640" />
+    <splash height="1024" src="www/img/ios/splash/Default-Portrait~ipad.png" width="768" />
+    <splash height="2048" src="www/img/ios/splash/Default-Portrait@2x~ipad.png" width="1536" />
+    <splash height="568" src="www/img/ios/splash/Default-568h~iphone.png" width="320" />
+    <splash height="1136" src="www/img/ios/splash/Default-568h@2x~iphone.png" width="640" />
+    <splash height="1334" src="www/img/ios/splash/Default-667h.png" width="750" />
+    <splash height="2208" src="www/img/ios/splash/Default-736h.png" width="1242" />
+    <preference name="AllowInlineMediaPlayback" value="false" />
+    <preference name="BackupWebStorage" value="cloud" />
+    <preference name="DisallowOverscroll" value="true" />
+    <preference name="EnableViewportScale" value="false" />
+    <preference name="KeyboardDisplayRequiresUserAction" value="true" />
+    <preference name="MediaPlaybackRequiresUserAction" value="false" />
+    <preference name="SuppressesIncrementalRendering" value="false" />
+    <preference name="SuppressesLongPressGesture" value="false" />
+    <preference name="Suppresses3DTouchGesture" value="false" />
+    <preference name="GapBetweenPages" value="0" />
+    <preference name="PageLength" value="0" />
+    <preference name="PaginationBreakingMode" value="page" />
+    <preference name="PaginationMode" value="unpaginated" />
+    <preference name="StatusBarOverlaysWebView" value="false" />
+    <preference name="StatusBarStyle" value="lightcontent" />
+    <preference name="StatusBarBackgroundColor" value="#000000" />
     <preference name="SplashScreen" value="screen" />
     <preference name="SplashScreenDelay" value="3000" />
-    <preference name="orientation" value="portrait" />
+    <preference name="Orientation" value="portrait" />
+    <preference name="Fullscreen" value="true" />
 </widget>
