@@ -3,7 +3,13 @@
         "installed": [],
         "uninstalled": []
     },
-    "config_munge": {},
-    "installed_plugins": {},
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.flyingacedesign.metrosaver"
+        }
+    },
     "dependent_plugins": {}
 }
