@@ -6,10 +6,6 @@
     "config_munge": {
         "files": {}
     },
-    "installed_plugins": {
-        "cordova-plugin-statusbar": {
-            "PACKAGE_NAME": "com.flyingacedesign.metrosaver"
-        }
-    },
+    "installed_plugins": {},
     "dependent_plugins": {}
 }
