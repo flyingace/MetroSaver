@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.flyingacedesign.metrosaver" version="2.0.7" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.flyingacedesign.metrosaver" version="2.0.8" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>MetroSaver</name>
     <description>
         Save your time. Save your money.
@@ -17,6 +17,7 @@
     <splash density="port-ldpi" src="www/img/android/splash/splash_port_ldpi.9.png" />
     <splash density="port-mdpi" src="www/img/android/splash/splash_port_mdpi.9.png" />
     <splash density="port-xhdpi" src="www/img/android/splash/splash_port_xhdpi.9.png" />
+    <splash density="port-xxhdpi" src="www/img/android/splash/splash_port_xxhdpi.9.png" />
     <preference name="loglevel" value="DEBUG" />
     <preference name="StatusBarOverlaysWebView" value="false" />
     <preference name="StatusBarBackgroundColor" value="#000000" />
