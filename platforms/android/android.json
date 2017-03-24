@@ -7,33 +7,13 @@
         "files": {
             "res/xml/config.xml": {
                 "parents": {
-                    "/*": [
-                        {
-                            "xml": "<feature name=\"StatusBar\"><param name=\"android-package\" value=\"org.apache.cordova.statusbar.StatusBar\" /><param name=\"onload\" value=\"true\" /></feature>",
-                            "count": 1
-                        }
-                    ]
+                    "/*": []
                 }
             }
         }
     },
-    "installed_plugins": {
-        "org.apache.cordova.statusbar": {
-            "PACKAGE_NAME": "com.flyingacedesign.metrosaver"
-        }
-    },
+    "installed_plugins": {},
     "dependent_plugins": {},
-    "modules": [
-        {
-            "id": "org.apache.cordova.statusbar.statusbar",
-            "file": "plugins/org.apache.cordova.statusbar/www/statusbar.js",
-            "pluginId": "org.apache.cordova.statusbar",
-            "clobbers": [
-                "window.StatusBar"
-            ]
-        }
-    ],
-    "plugin_metadata": {
-        "org.apache.cordova.statusbar": "0.1.10"
-    }
+    "modules": [],
+    "plugin_metadata": {}
 }
