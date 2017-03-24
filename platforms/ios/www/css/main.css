@@ -48,22 +48,6 @@ body {
   background-size: cover;
   overflow: hidden; }
 
-.splash-screen {
-  position: absolute;
-  z-index: 50;
-  background: url("../img/old_city_hall.jpg") no-repeat -180px 0;
-  background-size: cover;
-  overflow: hidden;
-  margin: 0;
-  padding: 0;
-  width: 100vw;
-  height: 100vh; }
-  .splash-screen .logo {
-    background: url("../img/logo.png") no-repeat center 2%;
-    background-size: 96%;
-    width: 100vw;
-    height: 100vh; }
-
 .app-wrapper {
   position: relative;
   display: block;

@@ -33,11 +33,6 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function () {
-        var splashScreen = document.getElementById('splash-screen');
-
-        window.setTimeout(function() {
-            splashScreen.setAttribute('style', 'display:none;');
-        }, 2000);
     }
 };
 
